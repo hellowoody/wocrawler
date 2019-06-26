@@ -1,10 +1,10 @@
 # wocrawler
 golang crawler
 
-### 注意
+### 注意 可能需要手动导入golang.org/net包
     $cd $GOPATH/src/golang.org/x/
     $git clone https://github.com/golang/net.git net
-    $go install net
+    $go install net  //这句可以不执行;如果执行,可以执行go install,执行后之后没有提示，就说明安装好了
 
 ## 编译
 go build -o bin/wocrawler/run wocrawler/
