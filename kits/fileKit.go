@@ -34,7 +34,7 @@ func DownloadFile(filepath string,contents []byte) {
 	filepath = appPath + filepath
 	file, err := os.Create(filepath)
 	if err != nil {
-		log.Fatal("create file err=%v\n", err)
+		log.Printf("create file err=%v\n", err)
 		return 
 	}
 	//及时关闭file句柄
