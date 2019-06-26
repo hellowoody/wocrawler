@@ -103,6 +103,8 @@ func ParseLevelThree(contents []byte,param interface{}) {
 func DownloadFile(contents []byte,param interface{}) {
 	title := param.(model.Request).Content
 	title = strings.TrimSpace(title)
+	title = strings.Replace(title," ","",-1)
+	title = strings.Replace(title,"/","",-1)
 	cacheKit := kits.GetInstance()
 	downloadPath := cacheKit.Config["downloadPath"].(string)
 	filePath := cacheKit.Config["filePath"].(string)
@@ -115,6 +117,8 @@ func DownloadFile(contents []byte,param interface{}) {
 
 func DownloadImg(contents []byte,param interface{}){
 	title := strings.TrimSpace(param.(model.Request).Content)
+	title = strings.Replace(title," ","",-1)
+	title = strings.Replace(title,"/","",-1)
 	baseUrl := param.(model.Request).Url
 	cacheKit := kits.GetInstance()
 	downloadPath := cacheKit.Config["downloadPath"].(string)

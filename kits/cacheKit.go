@@ -14,8 +14,7 @@ var config_filename = "/conf.ini"
 
 func GetInstance() *cacheKit{
 	once.Do(func(){
-		appPath := GetAppPath()
-		conf,_ := LoadFile(appPath + config_filename)
+		conf,_ := LoadFile(config_filename)
 		instance = &cacheKit{
 			Config : conf,
 		}

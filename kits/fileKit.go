@@ -10,6 +10,8 @@ import (
 )
 
 func Mkdir(filepath string) error{
+	appPath := GetAppPath()
+	filepath = appPath + filepath
 	_,err := os.Stat(filepath)
 	if os.IsNotExist(err) {
 		err=os.MkdirAll(filepath,os.ModePerm)
@@ -18,6 +20,8 @@ func Mkdir(filepath string) error{
 }
 
 func CreateFile(filepath string) error {
+	appPath := GetAppPath()
+	filepath = appPath + filepath
 	_,err := os.Stat(filepath)
 	if os.IsNotExist(err) {
 		_,err=os.Create(filepath)
@@ -26,9 +30,11 @@ func CreateFile(filepath string) error {
 }
 
 func DownloadFile(filepath string,contents []byte) {
+	appPath := GetAppPath()
+	filepath = appPath + filepath
 	file, err := os.Create(filepath)
 	if err != nil {
-		log.Printf("open file err=%v\n", err)
+		log.Fatal("create file err=%v\n", err)
 		return 
 	}
 	//及时关闭file句柄
@@ -37,6 +43,8 @@ func DownloadFile(filepath string,contents []byte) {
 }
 
 func WriteFile(filepath string,content string){
+	appPath := GetAppPath()
+	filepath = appPath + filepath
 	file, err := os.OpenFile(filepath, os.O_RDWR | os.O_CREATE | os.O_APPEND, 0666)
 	if err != nil {
 		log.Println("filekit===>> open file err=", err)
@@ -50,6 +58,8 @@ func WriteFile(filepath string,content string){
 }
 
 func LoadFile(filename string) (m map[string]interface{} , err error){
+	appPath := GetAppPath()
+	filename = appPath + filename
 	file,err := os.Open(filename)
 	if err != nil {
 		log.Println("open file error=>",err)
