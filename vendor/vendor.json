@@ -15,13 +15,9 @@
 			"revisionTime": "2018-10-12T15:44:24Z"
 		},
 		{
-			"path": "golang.org/x/net",
-			"revision": ""
-		},
-		{
 			"path": "golang.org/x/net/html",
 			"revision": ""
 		}
 	],
-	"rootPath": "go_code/wocrawler"
+	"rootPath": "wocrawler"
 }
