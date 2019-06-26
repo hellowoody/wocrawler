@@ -1,6 +1,11 @@
 # wocrawler
 golang crawler
 
+### 注意
+    $cd $GOPATH/src/golang.org/x/
+    $git clone https://github.com/golang/net.git net
+    $go install net
+
 ## 编译
 go build -o bin/wocrawler/run wocrawler/
 ## 执行
